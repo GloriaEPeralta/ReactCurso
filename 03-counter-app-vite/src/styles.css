@@ -1,0 +1,22 @@
+
+htlm,body{
+   
+    background-color: #21232A;
+    color: white ;
+    font-family: Helvetica,Arial, sans-serif;
+    font-size: 1.3rem;
+    padding: 70px;
+}   
+
+button{
+    padding: 10px 20px;
+    background-color: #61DAFB;
+    border: none;
+    border-radius: 5px;
+    color: #282C34;
+    cursor: pointer;
+    font-size: 1.3rem;
+    margin: 10px;
+    margin-right: 5px;
+    
+}       
