@@ -1,10 +1,17 @@
+import { useContext } from 'react';
 import {  useNavigate } from 'react-router-dom';
+import { AuthContext } from '../context/AuthContext';    // Importamos el contexto de autenticación  
 
 export const LoginPage = () => {
+  const {login} =useContext(AuthContext);    // Hook de React que nos permite acceder al contexto de la aplicación 
   const navigate= useNavigate();   
 
+
   const onLogin = () => {
-    navigate('/',{
+    const lastPath=localStorage.getItem('lastPath') || '/'; 
+    login('Katy Peralta');  
+
+    navigate(lastPath,{
       replace:true
     }); 
   }
