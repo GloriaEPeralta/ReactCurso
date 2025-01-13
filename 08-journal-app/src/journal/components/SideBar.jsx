@@ -2,11 +2,12 @@ import { TurnedInNot } from "@mui/icons-material"
 import { Box,Divider,Drawer, Grid2, List,ListItem, ListItemButton, ListItemIcon, Toolbar, Typography } from "@mui/material"
 import { ListItemText } from "@mui/material"    // ListItemText is a component  
 
-export const SideBar = ({drawerWith}) => {
+export const SideBar = ({drawerWidth=240}) => {
   return (
     <Box
         component='nav'
-        sx={{ width:{ sm:drawerWith }, flexShrink: { sm:0} }}
+        sx={{ width:{ sm:drawerWidth }, 
+        flexShrink: { sm:0}, display: { xs: 'none', sm: 'block' }  }}
 
     >
    
@@ -15,8 +16,8 @@ export const SideBar = ({drawerWith}) => {
             open={true}
             sx={{
                 display: { xs:  'block' },       
-                width: { sm: drawerWith },
-                '& .MuiDrawer-paper': { width: drawerWith, boxSizing: 'border-box' },
+                width: { sm: drawerWidth },
+                '& .MuiDrawer-paper': { width: drawerWidth, boxSizing: 'border-box' },
             }}  
 
         >
@@ -31,7 +32,7 @@ export const SideBar = ({drawerWith}) => {
             <List>
                 {
                     ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'].map(text => (    
-                        <ListItem button key={text} disablePadding>
+                        <ListItem  key={text} disablePadding>
                            <ListItemButton>
                                 <ListItemIcon>
                                     <TurnedInNot />

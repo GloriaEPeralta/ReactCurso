@@ -5,8 +5,8 @@ export const AuthLayout = ({children, title=''}) => {
     <Grid2 container
     spacing={0}
     direction="column"
-    alignItems={"center"} 
-    justifyContent={"center"}
+    alignItems="center" 
+    justifyContent="center"
     sx={{ minHeight: '100vh', backgroundColor: 'primary.main', padding: 4 }}     
     >
         <Grid2 item
