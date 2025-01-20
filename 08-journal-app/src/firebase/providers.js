@@ -59,10 +59,10 @@ export const registerUserWithEmailAndPassword = async({email,password,displayNam
     }
 }
 
-export const loginwithEmailAndPassword = async({email,password}) => {   
+export const loginWithEmailPassword = async({email,password}) => {   
 
     try {
-        // signInWithEmailAndPassword(FirebaseAuth,email,password).then((userCredential) => {   
+        // signInWithEmailAndPassword(FirebaseAuth,email,password) => {   
         const resp= await signInWithEmailAndPassword(FirebaseAuth,email,password);
         const {uid, photoURL, displayName} = resp.user;    
         return {
@@ -85,4 +85,6 @@ export const loginwithEmailAndPassword = async({email,password}) => {
 
 }
 
-  
+export const logoutFirebase = async() => {
+    return await FirebaseAuth.signOut();   
+}

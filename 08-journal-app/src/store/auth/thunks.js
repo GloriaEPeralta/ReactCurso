@@ -1,6 +1,6 @@
 //import { firebase, googleAuthProvider } from '../../firebase/firebase-config';  
 import { login, logout, chekingCredentials } from './';  
-import { loginwithEmailAndPassword,signInWithGoogle,registerUserWithEmailAndPassword } from '../../firebase/providers';    
+import { loginWithEmailPassword,signInWithGoogle,registerUserWithEmailAndPassword, logoutFirebase } from '../../firebase/providers';    
 
 
 export const checkingAuthenticaction = (email,password) => {  
@@ -55,16 +55,24 @@ export const checkingAuthenticaction = (email,password) => {
     
 
 
-export const startLoginEmailPassword = (email, password) => {
+export const startLoginWithEmailPassword = ({email, password}) => {
     //todo: revisar esta parte
     return async (dispatch) => {
         dispatch(chekingCredentials());
                                                       
-        const  result = await loginwithEmailAndPassword({email, password});
+        const  result = await loginWithEmailPassword({email, password});
         console.log(result); 
         if(!result.ok){
               return dispatch(logout( result));      
           }
          dispatch(login(result));  
+    }
+}   
+
+export const startLogout = () => {
+    return async (dispatch) => {
+       
+        await logoutFirebase();
+        dispatch(logout()); 
     }
 }   

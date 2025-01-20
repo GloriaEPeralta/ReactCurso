@@ -5,7 +5,7 @@ import { Google } from '@mui/icons-material';
 import {Alert,Grid2, TextField, Typography, Button, Link} from '@mui/material';
 import { AuthLayout } from '../layout/AuthLayout';
 import { useForm } from '../../hooks';
-import { startGoogleSignIn, startLoginEmailPassword } from '../../store/auth';
+import { startGoogleSignIn, startLoginWithEmailPassword } from '../../store/auth';
 
 
 export const LoginPage = () => {
@@ -23,7 +23,8 @@ export const LoginPage = () => {
   const onSubmit = (event) => { 
     event.preventDefault(); 
     console.log("SUBMIT EN LOGIN");  
-    dispatch(startLoginEmailPassword(email,password));  
+    
+    dispatch(startLoginWithEmailPassword({email,password}));  
       
   }
 
