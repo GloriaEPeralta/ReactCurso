@@ -7,16 +7,17 @@ import { AuthLayout } from '../layout/AuthLayout';
 import { useForm } from '../../hooks';
 import { startGoogleSignIn, startLoginWithEmailPassword } from '../../store/auth';
 
+const formData={
+  email:'',
+  password:''
+}
 
 export const LoginPage = () => {
 
   const {status,errorMessage} = useSelector(state => state.auth);
   const dispatch = useDispatch();   
 
-  const {email, password,onInputChange}=useForm({
-    email:'ekaterine.peralta@gmail.com',
-    password:'123456',
-  });
+  const {email, password,onInputChange}=useForm(formData);
 
   const isAuthenticating = useMemo(() => status === 'checking', [status]);
 
@@ -38,9 +39,11 @@ export const LoginPage = () => {
     <AuthLayout title='Login'>
      
    
-        <form onSubmit={onSubmit}>      
+        <form onSubmit={onSubmit}
+           className='animate__animated animate__fadeIn animate__faster' 
+          >      
             <Grid2 container > 
-              <Grid2 item xs={12} sx={{mt:2}}>
+              <Grid2  xs={12} sx={{mt:2}}>
                 <TextField 
                 label="correo" 
                 type='email' 
@@ -51,7 +54,7 @@ export const LoginPage = () => {
                 onChange={onInputChange}  
                 />
               </Grid2>
-              <Grid2 item xs={12} sx={{mt:2}}>
+              <Grid2  xs={12} sx={{mt:2}}>
                 <TextField 
                 label="contraseña" 
                 type='password' 
@@ -67,7 +70,7 @@ export const LoginPage = () => {
               container
               display={!!errorMessage ? '' : 'none'} 
               sx={{mt:1}} >
-              <Grid2 item xs={12} 
+              <Grid2  xs={12} 
                   >   
                   <Alert severity='error' > 
                     {errorMessage} 
@@ -76,7 +79,7 @@ export const LoginPage = () => {
               </Grid2>
             </Grid2>
               <Grid2 container spacing={2} sx={{mb:2, mt:1}} >  
-                <Grid2 item xs={12} sm={6} >  
+                <Grid2  xs={12} sm={6} >  
                   <Button 
                     disabled={isAuthenticating} 
                     type='submit' 
@@ -84,7 +87,7 @@ export const LoginPage = () => {
                     Login
                   </Button>
                 </Grid2>
-                <Grid2 item xs={12} sm={6} >
+                <Grid2  xs={12} sm={6} >
                   <Button  
                     disabled={isAuthenticating}
                     variant='contained' 

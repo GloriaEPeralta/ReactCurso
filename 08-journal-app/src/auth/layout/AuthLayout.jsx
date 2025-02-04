@@ -2,14 +2,16 @@ import {Grid2, Typography} from '@mui/material';
 
 export const AuthLayout = ({children, title=''}) => {
   return (
-    <Grid2 container
-    spacing={0}
-    direction="column"
-    alignItems="center" 
-    justifyContent="center"
-    sx={{ minHeight: '100vh', backgroundColor: 'primary.main', padding: 4 }}     
+    <Grid2 
+     
+      container
+      spacing={0}
+      direction="column"
+      alignItems="center" 
+      justifyContent="center"
+      sx={{ minHeight: '100vh', backgroundColor: 'primary.main', padding: 4 }}     
     >
-        <Grid2 item
+        <Grid2 
         className='box-shadow'
         xs={3} 
         sx={{ 

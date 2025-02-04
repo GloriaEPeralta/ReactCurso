@@ -53,9 +53,11 @@ export const RegisterPage = () => {
     <h1>FormValid {isFormValid ? 'Valido' : 'Incorrecto'}  </h1>
      
    
-        <form onSubmit={onSubmit}>    
+        <form onSubmit
+           className='animate__animated animate__fadeIn animate__faster' 
+        >    
             <Grid2 container > 
-            <Grid2 item xs={12} sx={{mt:2}}>
+            <Grid2  xs={12} sx={{mt:2}}>
                 <TextField 
                 label="Nombre Completo" 
                 type='text' 
@@ -68,7 +70,7 @@ export const RegisterPage = () => {
                 helperText={displayNameValid }   
                 />
               </Grid2>
-              <Grid2 item xs={12} sx={{mt:2}}>
+              <Grid2  xs={12} sx={{mt:2}}>
                 <TextField 
                 label="correo" 
                 type='email' 
@@ -81,7 +83,7 @@ export const RegisterPage = () => {
                 helperText={emailValid  }
                 />
               </Grid2>
-              <Grid2 item xs={12} sx={{mt:2}}>
+              <Grid2  xs={12} sx={{mt:2}}>
                 <TextField 
                 label="contraseña" 
                 type='password' 
@@ -96,13 +98,13 @@ export const RegisterPage = () => {
               </Grid2>
             
               <Grid2 container spacing={2} sx={{mb:2, mt:1}} >  
-                <Grid2 item xs={12} 
+                <Grid2  xs={12} 
                  display={!!errorMessage ? '' : 'none'}>   
                   <Alert severity='error' > 
                   {errorMessage}  
                   </Alert>  
                 </Grid2>
-                <Grid2 item xs={12} >  
+                <Grid2  xs={12} >  
                   <Button
                     disabled={isCheckingAuthentication}   
                     type='submit'  
@@ -115,9 +117,7 @@ export const RegisterPage = () => {
               </Grid2>  
                <Grid2 container direction='row' justifyContent='end'> 
                 <Typography sx={{mr:1}}>¿Ya tienes una cuenta?</Typography>
-                <Link component={RouterLink} color='inherit' to="/auth/login" >
-                 Ingresar
-                </Link> 
+                
 
                 </Grid2>
             </Grid2>
